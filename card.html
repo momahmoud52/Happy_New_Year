@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تهنئة المكتب الإعلامي المركزي</title>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+            animation: fadeIn 2s ease-out;
+            overflow: hidden;
+        }
+
+        /* تأثير FadeIn عند تحميل الصفحة */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* شريط العنوان */
+        .header {
+            width: 100%;
+            background-color: #00796b;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            position: absolute;
+            top: 20px;
+            animation: slideIn 1s ease-out;
+        }
+
+        /* تأثير SlideIn لشريط العنوان */
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* محتوى الرسالة */
+        .message-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+            margin-top: 50px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        /* تأثير FadeInUp لظهور الرسالة */
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .message-container h2 {
+            color: #004d40;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .message-container p {
+            font-size: 1.2rem;
+            color: #00796b;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .bold {
+            font-weight: bold;
+            color: #f57c00;
+        }
+
+        /* خلفية الفيديو */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 4%;
+        }
+
+        /* رسالة الحقوق في أسفل الصفحة */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* تأثير الثلوج */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            pointer-events: none;
+            font-size: 2rem;
+            color: #fff;
+            opacity: 0.8;
+            animation: snow 10s linear infinite;
+        }
+
+        @keyframes snow {
+            0% {
+                transform: translateY(0) rotate(0);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- خلفية فيديو -->
+    <video autoplay loop muted class="video-background">
+        <source src="5da03d86d43d7afb5dedcd65af8d4ed9.mp4" type="video/mp4">
+        فيديو غير مدعوم.
+    </video>
+
+    <!-- شريط العنوان -->
+    <div class="header">
+        تهنئة المكتب الإعلامي المركزي
+    </div>
+
+    <!-- محتوى الرسالة -->
+    <div class="message-container">
+        <h2>كل عام وأنتم بخير</h2>
+        <p id="greetingMessage">يسعد المكتب الإعلامي المركزي أن يتقدم بأسمى التهاني للقائد <span class="bold" id="name"></span> <span class="bold" id="role"></span> المكتب الإعلامي محافظة <span class="bold" id="city"></span> بمناسبة حلول عام 2025، سائلين الله أن يكون عامك مليئاً بالفرح والتوفيق!</p>
+    </div>
+
+    <!-- إضافة الصوت -->
+    <audio autoplay loop>
+        <source src="we-wish-you-a-merry-christmas-128367.mp3" type="audio/mp3">
+        صوت غير مدعوم.
+    </audio>
+
+    <!-- رسالة الحقوق -->
+    <div class="footer">
+        الحقوق محفوظة للمكتب الإعلامي المركزي
+    </div>
+
+    <!-- تأثير تساقط الثلوج -->
+    <script>
+        // دالة لتوليد الثلوج
+        function createSnowflakes() {
+            const numberOfSnowflakes = 50;  // عدد الثلوج
+            const snowContainer = document.body;
+
+            for (let i = 0; i < numberOfSnowflakes; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.textContent = '❄';  // استخدام رمز الثلج
+                snowflake.style.left = `${Math.random() * 100}vw`; // تحديد مكان الثلج عشوائيًا
+                snowflake.style.animationDuration = `${Math.random() * 10 + 5}s`; // تحديد سرعة تساقط الثلج عشوائيًا
+                snowContainer.appendChild(snowflake);
+            }
+        }
+
+        // استدعاء الدالة لتوليد الثلوج
+        createSnowflakes();
+
+        // الحصول على البيانات من URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const city = urlParams.get('city');
+        const role = urlParams.get('role');
+
+        // عرض البيانات في الصفحة
+        document.getElementById('name').textContent = name ? name : 'غير معروف';
+        document.getElementById('city').textContent = city ? city : 'غير معروف';
+        document.getElementById('role').textContent = role ? role : 'غير معروف';
+    </script>
+
+</body>
+</html>
